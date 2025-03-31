@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>360 Viewer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     html, body {
       margin: 0;
@@ -22,13 +23,12 @@
   <script src="https://unpkg.com/three@0.152.2/build/three.min.js"></script>
   <script src="https://unpkg.com/photo-sphere-viewer@5/dist/photo-sphere-viewer.js"></script>
   <script>
-    // Get the image name from the URL: ?img=room1-360-1.jpg
     const params = new URLSearchParams(window.location.search);
-    const imgName = params.get("img") || "room1-360-1.jpg"; // default image
+    const imgName = params.get("img") || "3008.jpg"; // default fallback
 
     const viewer = new PhotoSphereViewer.Viewer({
       container: document.querySelector('#viewer'),
-      panorama: `images/${imgName}`,
+      panorama: `images/${imgName}`, // Assumes 3008.jpg is inside /images/
     });
   </script>
 </body>
