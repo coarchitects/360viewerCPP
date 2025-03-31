@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <title>360 Viewer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     html, body {
       margin: 0;
       height: 100%;
       overflow: hidden;
+      background: #000;
     }
     #viewer {
       width: 100vw;
@@ -16,25 +17,30 @@
     }
   </style>
 
-  <!-- ✅ WORKING VERSION using Photo Sphere Viewer v4 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4.0.5/dist/photo-sphere-viewer.min.css" />
+  <!-- ✅ WORKING: Photo Sphere Viewer v3.7.3 (classic version) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@3.7.3/dist/photo-sphere-viewer.min.css" />
 </head>
 <body>
   <div id="viewer"></div>
 
-  <!-- Load THREE.js -->
+  <!-- THREE.js -->
   <script src="https://cdn.jsdelivr.net/npm/three@0.121.1/build/three.min.js"></script>
 
-  <!-- Load Photo Sphere Viewer (v4 - browser compatible) -->
-  <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4.0.5/dist/photo-sphere-viewer.min.js"></script>
+  <!-- PSV v3.7.3 (classic, browser-safe) -->
+  <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@3.7.3/dist/photo-sphere-viewer.min.js"></script>
 
   <script>
     const params = new URLSearchParams(window.location.search);
-    const imgName = params.get("img") || "3008.JPG"; // default
+    const imgName = params.get("img") || "3008.JPG"; // Default fallback image
 
     const viewer = new PhotoSphereViewer({
-      container: document.getElementById('viewer'),
       panorama: imgName,
+      container: 'viewer',
+      caption: imgName,
+      loading_img: 'https://photo-sphere-viewer.js.org/assets/photosphere-logo.gif',
+      navbar: true,
+      default_fov: 70,
+      mousewheel: true,
     });
   </script>
 </body>
