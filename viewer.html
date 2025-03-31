@@ -11,22 +11,26 @@
       overflow: hidden;
     }
     #viewer {
-      width: 100%;
-      height: 100%;
+      width: 100vw;
+      height: 100vh;
     }
   </style>
 
-  <!-- ✅ Use Photo Sphere Viewer v4 (compatible without modules) -->
-  <link rel="stylesheet" href="https://unpkg.com/photo-sphere-viewer@4/dist/photo-sphere-viewer.min.css" />
+  <!-- ✅ WORKING VERSION using Photo Sphere Viewer v4 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4.0.5/dist/photo-sphere-viewer.min.css" />
 </head>
 <body>
   <div id="viewer"></div>
 
-  <script src="https://unpkg.com/three@0.121.1/build/three.min.js"></script>
-  <script src="https://unpkg.com/photo-sphere-viewer@4/dist/photo-sphere-viewer.min.js"></script>
+  <!-- Load THREE.js -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.121.1/build/three.min.js"></script>
+
+  <!-- Load Photo Sphere Viewer (v4 - browser compatible) -->
+  <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4.0.5/dist/photo-sphere-viewer.min.js"></script>
+
   <script>
     const params = new URLSearchParams(window.location.search);
-    const imgName = params.get("img") || "3008.JPG";
+    const imgName = params.get("img") || "3008.JPG"; // default
 
     const viewer = new PhotoSphereViewer({
       container: document.getElementById('viewer'),
