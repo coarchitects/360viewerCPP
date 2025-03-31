@@ -17,31 +17,31 @@
     }
   </style>
 
-  <!-- ✅ WORKING: Photo Sphere Viewer v3.7.3 (classic version) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@3.7.3/dist/photo-sphere-viewer.min.css" />
+  <!-- ✅ PSV v3.7.3 - tested and GitHub Pages safe -->
+  <link rel="stylesheet" href="https://unpkg.com/photo-sphere-viewer@3.7.3/dist/photo-sphere-viewer.min.css" />
 </head>
 <body>
   <div id="viewer"></div>
 
-  <!-- THREE.js -->
-  <script src="https://cdn.jsdelivr.net/npm/three@0.121.1/build/three.min.js"></script>
-
-  <!-- PSV v3.7.3 (classic, browser-safe) -->
-  <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@3.7.3/dist/photo-sphere-viewer.min.js"></script>
-
+  <!-- ✅ Load scripts at the bottom so they are ready before your code runs -->
+  <script src="https://unpkg.com/three@0.121.1/build/three.min.js"></script>
+  <script src="https://unpkg.com/photo-sphere-viewer@3.7.3/dist/photo-sphere-viewer.min.js"></script>
+  
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const imgName = params.get("img") || "3008.jpg"; // Default fallback image
+    window.onload = function () {
+      const params = new URLSearchParams(window.location.search);
+      const imgName = params.get("img") || "3008.jpg";
 
-    const viewer = new PhotoSphereViewer({
-      panorama: imgName,
-      container: 'viewer',
-      caption: imgName,
-      loading_img: 'https://photo-sphere-viewer.js.org/assets/photosphere-logo.gif',
-      navbar: true,
-      default_fov: 70,
-      mousewheel: true,
-    });
+      const viewer = new PhotoSphereViewer({
+        panorama: imgName,
+        container: 'viewer',
+        caption: imgName,
+        loading_img: 'https://photo-sphere-viewer.js.org/assets/photosphere-logo.gif',
+        navbar: true,
+        default_fov: 70,
+        mousewheel: true,
+      });
+    };
   </script>
 </body>
 </html>
