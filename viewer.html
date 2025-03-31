@@ -24,11 +24,10 @@
   <script src="https://unpkg.com/photo-sphere-viewer@5/dist/photo-sphere-viewer.js"></script>
   <script>
     const params = new URLSearchParams(window.location.search);
-    const imgName = params.get("img") || "3008.JPG"; // default fallback
-
+    const imgName = params.get("img") || "3008.JPG"; // Default fallback image
     const viewer = new PhotoSphereViewer.Viewer({
       container: document.querySelector('#viewer'),
-      panorama: `images/${imgName}`, // Assumes 3008.jpg is inside /images/
+      panorama: imgName, // 👈 This loads from the root of your repo
     });
   </script>
 </body>
