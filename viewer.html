@@ -15,19 +15,22 @@
       height: 100%;
     }
   </style>
-  <link rel="stylesheet" href="https://unpkg.com/photo-sphere-viewer@5/dist/photo-sphere-viewer.css" />
+
+  <!-- ✅ Use Photo Sphere Viewer v4 (compatible without modules) -->
+  <link rel="stylesheet" href="https://unpkg.com/photo-sphere-viewer@4/dist/photo-sphere-viewer.min.css" />
 </head>
 <body>
   <div id="viewer"></div>
 
-  <script src="https://unpkg.com/three@0.152.2/build/three.min.js"></script>
-  <script src="https://unpkg.com/photo-sphere-viewer@5/dist/photo-sphere-viewer.js"></script>
+  <script src="https://unpkg.com/three@0.121.1/build/three.min.js"></script>
+  <script src="https://unpkg.com/photo-sphere-viewer@4/dist/photo-sphere-viewer.min.js"></script>
   <script>
     const params = new URLSearchParams(window.location.search);
-    const imgName = params.get("img") || "3008.JPG"; // Default fallback image
-    const viewer = new PhotoSphereViewer.Viewer({
-      container: document.querySelector('#viewer'),
-      panorama: imgName, // 👈 This loads from the root of your repo
+    const imgName = params.get("img") || "3008.JPG";
+
+    const viewer = new PhotoSphereViewer({
+      container: document.getElementById('viewer'),
+      panorama: imgName,
     });
   </script>
 </body>
