@@ -9,12 +9,13 @@
 <body>
     <div id="panorama" style="width: 100%; height: 100vh;"></div>
 
-    <script>
-        pannellum.viewer('panorama', {
-            "type": "equirectangular",
-            "panorama": "images/test.jpg",
-            "autoLoad": true
-        });
-    </script>
+    const params = new URLSearchParams(window.location.search);
+    const image = params.get('img') || 'test.jpg';
+
+    pannellum.viewer('panorama', {
+        "type": "equirectangular",
+        "panorama": "images/" + image,
+        "autoLoad": true
+    });
 </body>
 </html>
