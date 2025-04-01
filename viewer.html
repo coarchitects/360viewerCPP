@@ -32,11 +32,9 @@
       const params = new URLSearchParams(window.location.search);
       const imgName = params.get("img") || "3008.jpg";
 
-      // const viewer = new PhotoSphereViewer({
-      const viewer = new PhotoSphereViewer.Viewer({
+      const viewer = new PhotoSphereViewer({
         panorama: 'images/' + imgName, // ✅ Adjusted path
-        // container: 'viewer',
-        container: document.getElementById('viewer'),
+        container: 'viewer',
         caption: imgName,
         loading_img: 'https://photo-sphere-viewer.js.org/assets/photosphere-logo.gif',
         navbar: true,
